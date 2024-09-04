@@ -1,0 +1,177 @@
+﻿<Window x:Class="ecopriv.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ecopriv"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1072" Width="1912"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+
+    <Border Background="#294577" CornerRadius="8" Padding="4">
+        <Grid Background="#294577">
+            <Grid.Resources>
+                <!-- Define a reusable style for the DataGrids -->
+                <Style x:Key="CommonDataGridStyle" TargetType="DataGrid">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="500"/>
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Top"/>
+                    <Setter Property="Margin" Value="5,0,5,5"/>
+                    <Setter Property="AutoGenerateColumns" Value="False"/>
+                    <Setter Property="CanUserAddRows" Value="False"/>
+                    <Setter Property="CanUserDeleteRows" Value="False"/>
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="ColumnWidth" Value="*"/>
+                </Style>
+                <Style x:Key="CommonLabelStyle" TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="Margin" Value="5,5,5,0"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Foreground" Value="white"/>
+                </Style>
+            </Grid.Resources>
+
+            <Grid>
+                <!-- Custom Title Bar -->
+                <Border Background="#294577" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Minimize" Click="MinimizeButton_Click"/>
+                        <Button Content="Close" Click="CloseButton_Click"/>
+                    </StackPanel>
+                </Border>
+                <!-- Resize Handles -->
+                <Border Background="Transparent" Cursor="SizeNS" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeWE" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeNWSE" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="10" Height="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeNESW" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="10" Height="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeNS" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeWE" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeNESW" VerticalAlignment="Top" HorizontalAlignment="Right" Width="10" Height="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <Border Background="Transparent" Cursor="SizeNWSE" VerticalAlignment="Top" HorizontalAlignment="Left" Width="10" Height="10" MouseLeftButtonDown="ResizeHandle_MouseLeftButtonDown" MouseMove="ResizeHandle_MouseMove" MouseLeftButtonUp="ResizeHandle_MouseLeftButtonUp"/>
+                <!-- Main content of your window -->
+                <Grid>
+                    <!-- Your main content here -->
+                </Grid>
+            </Grid>
+
+            <UniformGrid Columns="8" Margin="0,50,0,0">
+                <!-- DataGrid #1 -->
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#4472c4">Bills</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <!-- DataGrid #2 -->
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#5b9bd5">Fixed expenses</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <!-- DataGrid #3 -->
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ffc000">Temporary expenses</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <!-- DataGrid #4 with different height -->
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#70ad47">Buffer</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <!-- Repeat for additional DataGrids as needed -->
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ffc7ce">Debt to G-spar</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription Common</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription partner one</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription partner two</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </UniformGrid>
+
+            <!-- Overlay Grid for Additional UI Elements -->
+            <Grid>
+                <StackPanel 
+                        x:Name="AddBox"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Visibility="Collapsed"
+                        Orientation="Vertical"
+                        Background="Blue">
+
+                    <TextBlock Text="Expense name" Width="200" Margin="5,5,5,0" Foreground="White"/>
+                    <TextBox x:Name="TypeTextBox" Width="200" Margin="5,0,5,5" Foreground="Black"/>
+                    <TextBlock Text="Amount" Width="200" Margin="5,5,5,0" Foreground="White"/>
+                    <TextBox x:Name="ValueTextBox" Width="200" Margin="5,0,5,5" Foreground="Black"/>
+                    <TextBlock Text="Assignment" Width="200" Margin="5,5,5,0" Foreground="White"/>
+                    <TextBox x:Name="AssignmentTextBox" Width="200" Margin="5,0,5,5" Foreground="Black"/>
+                    <Button x:Name="AddSubmit" Content="Submit" Width="200" Margin="5" Foreground="Black" Click="AddSubmit_Click"/>
+                </StackPanel>
+
+                <Button x:Name="AddButton"
+                            Content="Open Add"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Margin="10"
+                            Click="AddButton_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -59,85 +59,94 @@
                 </Grid>
             </Grid>
 
-            <UniformGrid Columns="8" Margin="0,50,0,0">
-                <!-- DataGrid #1 -->
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#4472c4">Bills</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+        <UniformGrid Columns="8" Margin="0,50,0,0">
+            <!-- DataGrid #1 -->
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#4472c4">Bills</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <!-- DataGrid #2 -->
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#5b9bd5">Fixed expenses</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+            <!-- DataGrid #2 -->
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#5b9bd5">Fixed expenses</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <!-- DataGrid #3 -->
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ffc000">Temporary expenses</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+            <!-- DataGrid #3 -->
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#ffc000">Temporary expenses</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <!-- DataGrid #4 with different height -->
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#70ad47">Buffer</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+            <!-- DataGrid #4 with different height -->
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#70ad47">Buffer</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <!-- Repeat for additional DataGrids as needed -->
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ffc7ce">Debt to G-spar</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+            <!-- Repeat for additional DataGrids as needed -->
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#ffc7ce">Debt to G-spar</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription Common</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription Common</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription partner one</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription partner one</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
 
-                <StackPanel>
-                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription partner two</Label>
-                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+            <StackPanel>
+                <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Subscription partner two</Label>
+                <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+                <StackPanel Margin="0,20,0,0">
+                    <Label Style="{StaticResource CommonLabelStyle}" Background="#ed7d31">Income</Label>
+                    <DataGrid ItemsSource="{Binding Numbers}" Style="{StaticResource CommonDataGridStyle}" Height="200">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
                             <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
@@ -145,6 +154,9 @@
                     </DataGrid>
                 </StackPanel>
             </UniformGrid>
+
+        
+
 
             <!-- Overlay Grid for Additional UI Elements -->
             <Grid>
